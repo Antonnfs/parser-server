@@ -1,6 +1,4 @@
 import * as admin from "firebase-admin";
-// import * as functions from "firebase-functions";
-// import { onRequest } from "firebase-functions/v2/https";
 import { onSchedule } from "firebase-functions/v2/scheduler";
 import { grabNewPostsToDB } from "./utils/grabNewPostsToDB";
 
@@ -12,7 +10,3 @@ export const parseUrlOnSchedule = onSchedule("every 55 minutes", async () => {
    await grabNewPostsToDB();
 });
 
-// export const helloWorld = onRequest(async (request, response) => {
-//    const posts = await getNewPostsToDB();
-//    response.send(posts);
-// });
