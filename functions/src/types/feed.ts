@@ -7,6 +7,8 @@ export interface FeedItem {
    guid: string;
    categories: string[];
    isoDate: string;
+   link: string;
+   image?: string;
 }
 export interface FeedProps {
    items: FeedItem[];
