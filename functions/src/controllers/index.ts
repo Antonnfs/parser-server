@@ -4,14 +4,10 @@ import Firestore from "../services/index";
 
 export const getPosts = async (req: Request, res: Response) => {
    try {
-      const last =
-         typeof req.query.last === "string" ? req.query.last : undefined;
-      const first =
-         typeof req.query.first === "string" ? req.query.first : undefined;
-      const limit =
-         typeof req.query.limit === "string" ? parseInt(req.query.limit) : 10;
-      const page =
-         typeof req.query.page === "string" ? parseInt(req.query.page) : 1;
+      const last = req.query.last as string;
+      const first = req.query.first as string;
+      const limit = parseInt(req.query.limit as string) || 10;
+      const page = parseInt(req.query.page as string) || 1;
       const result = await Firestore.getPosts({ last, first, limit, page });
       res.status(200).json(result);
    } catch (error) {
