@@ -29,6 +29,7 @@ module.exports = {
       "curly": ["warn", "multi-or-nest"],
       "object-curly-spacing": ["warn", "always"],
       "@typescript-eslint/no-var-requires": "warn",
+      "prefer-const": "warn",
    },
    reportUnusedDisableDirectives: true,
 };
