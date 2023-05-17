@@ -3,7 +3,7 @@ import * as functions from "firebase-functions";
 import * as express from "express";
 import * as cors from "cors";
 import { onSchedule } from "firebase-functions/v2/scheduler";
-import { grabNewPostsToDB } from "./utils/grabNewPostsToDB";
+import { grabNewPostsToDB } from "./utils/scheduler";
 import router from "./routes";
 
 const firebaseApp = admin.initializeApp();
