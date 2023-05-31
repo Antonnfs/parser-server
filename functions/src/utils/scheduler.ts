@@ -14,7 +14,17 @@ export const grabNewPostsToDB = async () => {
       if (!docsIds.includes(item.guid)) {
          const dom = new jsdom.JSDOM(`<!DOCTYPE html>${item.content}`);
          const image = dom.window.document.querySelector("img")?.src;
-         postsSnap.doc(item.guid).set({ ...item, image });
+         const postData = {
+            guid: item.guid,
+            creator: item.creator,
+            title: item.title,
+            content: item.contentSnippet,
+            isoDate: item.isoDate,
+            categories: item.categories,
+            link: item.link,
+            image,
+         };
+         postsSnap.doc(item.guid).set(postData);
       }
    });
 };
