@@ -2,7 +2,7 @@ export interface FeedItem {
    creator: string;
    title: string;
    content: string;
-   contentSnippet: string;
+   contentSnippet?: string;
    guid: string;
    categories: string[];
    isoDate: string;
