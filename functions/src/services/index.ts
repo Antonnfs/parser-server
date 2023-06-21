@@ -5,9 +5,15 @@ import { getPaginatedData } from "../utils/pagination";
 import { PaginationProps } from "../types/pagination";
 import moment = require("moment");
 
-const getPosts = async ({ last, first, limit, page }: PaginationProps) => {
+const getPosts = async ({
+   last,
+   first,
+   limit,
+   page,
+   sort,
+}: PaginationProps) => {
    const ref = db.collection(COLLECTIONS.POSTS);
-   return await getPaginatedData({ ref, last, first, limit, page });
+   return await getPaginatedData({ ref, last, first, limit, page, sort });
 };
 
 const getPost = async (id: string) => {

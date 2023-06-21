@@ -8,7 +8,14 @@ export const getPosts = async (req: Request, res: Response) => {
       const first = req.query.first as string;
       const limit = parseInt(req.query.limit as string) || 10;
       const page = parseInt(req.query.page as string) || 1;
-      const result = await Firestore.getPosts({ last, first, limit, page });
+      const sort = (req.query.sort as "asc" | "desc") || "desc";
+      const result = await Firestore.getPosts({
+         last,
+         first,
+         limit,
+         page,
+         sort,
+      });
       res.status(200).json(result);
    } catch (error) {
       res.status(400).json(error);
@@ -17,7 +24,7 @@ export const getPosts = async (req: Request, res: Response) => {
 
 export const getPost = async (req: Request, res: Response) => {
    try {
-      const guid: string = req.params.id;
+      const guid: string = req.query.guid as string;
       const result = await Firestore.getPost(guid);
       res.status(200).json(result);
    } catch (error) {

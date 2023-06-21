@@ -4,4 +4,5 @@ export interface PaginationProps {
    last?: string;
    first?: string;
    page?: number;
+   sort: "asc" | "desc";
 }
